@@ -74,6 +74,16 @@ export default function Portfolio() {
 
   const sideProjects = [
     {
+      title: "Cover Letter Guru",
+      description: "AI-Powered Cover Letter Builder",
+      tagline: "Create compelling, personalized cover letters in minutes with AI assistance. Stand out from the competition.",
+      logo: "/cover-letter-guru-logo.png",
+      screenshots: ["/cover-letter-guru-1.png", "/cover-letter-guru-2.png", "/cover-letter-guru-3.png"],
+      ctaText: "Try Cover Letter Guru",
+      ctaLink: "https://www.cover-letter.guru",
+      showGrowth: false,
+    },
+    {
       title: "Motivation Map",
       description: "Discover What Motivates You at Work",
       tagline: "Create visual mind maps of your professional motivations and share them with your team.",
@@ -124,6 +134,7 @@ export default function Portfolio() {
       screenshots: ["/dzdaisy1.png", "/dzdaisy2.png"],
       ctaText: "Follow Journey",
       ctaLink: "https://dzdaisy.com",
+      instagramText: "@thedzdaisy",
       instagramLink: "http://instagram.com/thedzdaisy",
       showGrowth: false,
     },
@@ -155,11 +166,10 @@ export default function Portfolio() {
       description:
         "I have designed the brand, logo, and website for a local cleaning company. The website is a single-page site that pairs a bold mascot brand with a service checklist and before-after gallery, guiding homeowners from problem to \"Contact Us\" in one scroll.",
       ctaText: "View Project",
-      ctaLink: "https://allclasscleaning.com.au",
+      ctaLink: "https://www.all-class.com",
       logo: "/all-class-logo.png",
       screenshots: ["/all-class1.png"],
       showGrowth: false,
-      isComingSoon: true
     },
   ]
 
@@ -168,13 +178,13 @@ export default function Portfolio() {
       {/* Desktop Layout */}
       <div className="hidden lg:flex h-screen">
         {/* Left Column - Sticky Hero (35%) */}
-        <div className="w-[35%] p-8 flex items-center relative">
+        <div className="w-[35%] p-6 flex items-center relative">
           {/* Dark Mode Toggle */}
           <div className="absolute top-6 right-6">
             <DarkModeToggle />
           </div>
           
-          <div className="w-full max-w-md mx-auto space-y-8">
+          <div className="w-full max-w-md mx-auto space-y-6">
             <div className="flex justify-center">
               <Avatar />
             </div>
@@ -209,8 +219,8 @@ export default function Portfolio() {
         </div>
 
         {/* Right Column - All Projects (65%) */}
-        <div ref={cardsContainerRef} className="w-[65%] p-8 overflow-y-auto">
-          <div className="max-w-5xl mx-auto space-y-12">
+        <div ref={cardsContainerRef} className="w-[65%] p-6 overflow-y-auto">
+          <div className="max-w-5xl mx-auto space-y-8">
             <ProjectSection title="My side projects 🚀" projects={sideProjects} onImageClick={openModal} />
             <ProjectSection title="Other projects 🛠️" projects={otherProjects} onImageClick={openModal} />
             <ProjectSection title="Client jobs 💼" projects={clientJobs} onImageClick={openModal} />
@@ -226,7 +236,7 @@ export default function Portfolio() {
         </div>
         
         {/* Mobile Hero */}
-        <div className="p-6 space-y-6">
+        <div className="p-4 space-y-4">
           <div className="text-center space-y-4">
             <Avatar size="w-32 h-32" />
             <h1 className="text-3xl font-poppins font-bold" style={{color: 'var(--heading)'}}>{content.name}</h1>
@@ -245,7 +255,7 @@ export default function Portfolio() {
         </div>
 
         {/* Mobile Cards */}
-        <div className="p-6 space-y-8">
+        <div className="p-4 space-y-6">
           <ProjectSection title="My side projects 🚀" projects={sideProjects} isMobile onImageClick={openModal} />
           <ProjectSection title="Other projects 🛠️" projects={otherProjects} isMobile onImageClick={openModal} />
           <ProjectSection title="Client jobs 💼" projects={clientJobs} isMobile onImageClick={openModal} />

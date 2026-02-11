@@ -16,25 +16,23 @@ export const DarkModeToggle: FC<DarkModeToggleProps> = ({ className = '' }) => {
   return (
     <button
       onClick={toggleTheme}
-      className={`w-14 h-7 rounded-full p-1 relative transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-garnet ${className}`}
+      className={`relative h-7 w-14 rounded-full p-1 transition-colors duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${className}`}
       style={{
-        backgroundColor: '#666'
+        backgroundColor: 'var(--card-background)',
+        borderColor: 'var(--border)',
       }}
-      aria-label="Toggle dark mode"
+      aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >
       <div
-        className={`w-5 h-5 rounded-full shadow-md transform transition-transform duration-300 ${
+        className={`h-5 w-5 rounded-full shadow-md transition-transform duration-300 ${
           isDarkMode ? 'translate-x-7' : 'translate-x-0'
         }`}
         style={{
-          backgroundColor: isDarkMode ? '#000' : '#ffffff'
+          backgroundColor: 'var(--foreground)'
         }}
       />
-      <span className="sr-only">
-        {isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-      </span>
-      <SunIcon className="absolute left-1.5 top-1.5 w-3 h-3 text-yellow-500" />
-      <MoonIcon className="absolute right-1.5 top-1.5 w-3 h-3 text-blue-400" />
+      <SunIcon className="absolute left-1.5 top-1.5 h-4 w-4 text-yellow-500" />
+      <MoonIcon className="absolute right-1.5 top-1.5 h-4 w-4 text-blue-400" />
     </button>
   );
 };

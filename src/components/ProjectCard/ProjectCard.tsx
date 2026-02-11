@@ -19,6 +19,7 @@ export interface Project {
   ctaLink?: string
   showGrowth?: boolean
   instagramLink?: string
+  instagramText?: string
 }
 
 interface ProjectCardProps extends Project {
@@ -37,6 +38,7 @@ export const ProjectCard = ({
   ctaLink = "#",
   showGrowth = false,
   instagramLink,
+  instagramText,
   onImageClick,
 }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false)
@@ -69,7 +71,7 @@ export const ProjectCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="card-body p-6 flex flex-col h-full">
+      <div className="card-body p-4 flex flex-col h-full">
         <div className="flex items-start justify-between mb-4">
           {logo ? (
             <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center flex-shrink-0 bg-white dark:bg-gray-100">
@@ -96,13 +98,13 @@ export const ProjectCard = ({
                     <button
                       key={index}
                       onClick={() => onImageClick(screenshot)}
-                      className="w-10 h-10 rounded-lg overflow-hidden border border-beaver/20 dark:border-beaver/30 hover:scale-105 hover:border-garnet hover:shadow-md transition-all duration-200"
+                      className="w-14 h-8 rounded-lg overflow-hidden border border-beaver/20 dark:border-beaver/30 hover:scale-105 hover:border-garnet hover:shadow-md transition-all duration-200"
                     >
                       <Image
                         src={screenshot}
                         alt={`${title} screenshot ${index + 1}`}
-                        width={40}
-                        height={40}
+                        width={56}
+                        height={32}
                         className="w-full h-full object-cover"
                       />
                     </button>
@@ -114,13 +116,13 @@ export const ProjectCard = ({
                       <button
                         key={index}
                         onClick={() => onImageClick(screenshot)}
-                        className="w-10 h-10 rounded-lg overflow-hidden border border-beaver/20 dark:border-beaver/30 hover:scale-105 hover:border-garnet hover:shadow-md transition-all duration-200"
+                        className="w-14 h-8 rounded-lg overflow-hidden border border-beaver/20 dark:border-beaver/30 hover:scale-105 hover:border-garnet hover:shadow-md transition-all duration-200"
                       >
                         <Image
                           src={screenshot}
                           alt={`${title} screenshot ${index + 1}`}
-                          width={40}
-                          height={40}
+                          width={56}
+                          height={32}
                           className="w-full h-full object-cover"
                         />
                       </button>
@@ -130,7 +132,7 @@ export const ProjectCard = ({
                         e.stopPropagation()
                         setShowAllThumbnails(!showAllThumbnails)
                       }}
-                      className="w-10 h-10 rounded-lg overflow-hidden border border-beaver/20 dark:border-beaver/30 flex items-center justify-center text-xs font-medium hover:scale-105 hover:border-garnet hover:shadow-md transition-all duration-200 relative"
+                      className="w-14 h-8 rounded-lg overflow-hidden border border-beaver/20 dark:border-beaver/30 flex items-center justify-center text-xs font-medium hover:scale-105 hover:border-garnet hover:shadow-md transition-all duration-200 relative"
                       style={{
                         backgroundColor: 'var(--muted)',
                         color: '#ffffff'
@@ -157,13 +159,13 @@ export const ProjectCard = ({
                           onImageClick(screenshot)
                           setShowAllThumbnails(false)
                         }}
-                        className="w-10 h-10 rounded-lg overflow-hidden border border-beaver/20 dark:border-beaver/30 hover:scale-105 hover:border-garnet hover:shadow-md transition-all duration-200"
+                        className="w-14 h-8 rounded-lg overflow-hidden border border-beaver/20 dark:border-beaver/30 hover:scale-105 hover:border-garnet hover:shadow-md transition-all duration-200"
                       >
                         <Image
                           src={screenshot}
                           alt={`${title} screenshot ${index + 3}`}
-                          width={40}
-                          height={40}
+                          width={56}
+                          height={32}
                           className="w-full h-full object-cover"
                         />
                       </button>
@@ -175,14 +177,14 @@ export const ProjectCard = ({
           )}
         </div>
 
-        <div className="space-y-2 flex-grow">
+        <div className="space-y-1.5 flex-grow">
           <h3 className="font-poppins font-semibold text-lg" style={{color: 'var(--heading)'}}>{title}</h3>
           <p className="text-sm font-dm-sans leading-relaxed" style={{color: 'var(--text-secondary)'}}>{description}</p>
           {tagline && <p className="text-xs font-dm-sans italic" style={{color: 'var(--muted)'}}>{tagline}</p>}
         </div>
 
         {showGrowth && sparklineData && !isComingSoon && (
-          <div className="flex items-center justify-between py-3 mt-4">
+          <div className="flex items-center justify-between py-2 mt-4">
             <span className="text-xs font-dm-sans" style={{color: 'var(--muted)'}}>Growth</span>
             <Sparkline data={sparklineData} color="#754043" />
           </div>
@@ -190,19 +192,19 @@ export const ProjectCard = ({
 
         <div className="mt-4 pt-4">
           {isComingSoon ? (
-            <div className="flex items-center justify-center py-2">
+            <div className="flex items-center justify-center py-1">
               <span className="font-dm-sans text-sm" style={{color: 'var(--muted)'}}>Coming soon ✨</span>
             </div>
           ) : (
-            <div className="space-y-3">
-              {instagramLink && (
-                <div className="flex justify-center">
+            <div className="space-y-2">
+              {instagramLink && instagramText && (
+                <a href={instagramLink} target="_blank" rel="noopener noreferrer" className="block mb-2">
                   <button 
-                    className="btn btn-outline btn-circle hover:scale-105 transition-all duration-200"
+                    className="btn w-full rounded-full font-dm-sans text-sm transition-all duration-200 border"
                     style={{
-                      borderColor: 'var(--muted)',
+                      backgroundColor: 'transparent',
+                      borderColor: 'var(--border)',
                       color: 'var(--text-secondary)',
-                      backgroundColor: 'transparent'
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.borderColor = 'var(--accent)'
@@ -210,14 +212,14 @@ export const ProjectCard = ({
                       e.currentTarget.style.color = '#ffffff'
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--muted)'
+                      e.currentTarget.style.borderColor = 'var(--border)'
                       e.currentTarget.style.backgroundColor = 'transparent'
                       e.currentTarget.style.color = 'var(--text-secondary)'
                     }}
                   >
-                    <InstagramIcon href={instagramLink} />
+                    <InstagramIcon /> {instagramText}
                   </button>
-                </div>
+                </a>
               )}
               <button
                 className="btn w-full bg-garnet hover:bg-garnet/90 text-white rounded-full font-dm-sans text-sm transition-all duration-200 border-0"
