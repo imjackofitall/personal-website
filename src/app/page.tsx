@@ -94,13 +94,13 @@ export default function Portfolio() {
       showGrowth: false,
     },
     {
-      title: "ShakkaShuffle",
+      title: "ShakaShuffle",
       description: "Planning Poker, in Quokka style!",
       tagline: "Estimate, collaborate, and hang loose like the happiest animal on Earth.",
       logo: "/shaka-shuffle-logo.svg",
       screenshots: ["/ShakkaShuffle1.png", "/ShakkaShuffle2.png", "/ShakkaShuffle3.png", "/ShakkaShuffle4.png"],
-      ctaText: "Try ShakkaShuffle",
-      ctaLink: "https://shakkashuffle.com",
+      ctaText: "Try ShakaShuffle",
+      ctaLink: "https://shakashuffle.com",
       showGrowth: false,
     },
     {
