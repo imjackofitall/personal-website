@@ -78,7 +78,7 @@ export default function Portfolio() {
       description: "AI-Powered Cover Letter Builder",
       tagline: "Create compelling, personalized cover letters in minutes with AI assistance. Stand out from the competition.",
       logo: "/cover-letter-guru-logo.png",
-      screenshots: ["/cover-letter-guru-1.png", "/cover-letter-guru-2.png", "/cover-letter-guru-3.png"],
+      screenshots: ["/cover-letter-guru-1.png", "/cover-letter-guru-2.png", "/cover-letter-guru-3.png", "/cover-letter-guru-4.png"],
       ctaText: "Try Cover Letter Guru",
       ctaLink: "https://www.cover-letter.guru",
       showGrowth: false,
