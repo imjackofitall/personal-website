@@ -41,6 +41,11 @@ export const metadata: Metadata = {
       }
     ],
   },
+  verification: {
+    other: {
+      'facebook-domain-verification': 'bay9ebq9uhncxslxlmsvdeasjgw8qj',
+    },
+  },
   robots: {
     index: true,
     follow: true,
